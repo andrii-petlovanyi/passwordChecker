@@ -8,8 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'passwordChecker';
 
+  show: boolean = false;
+
+
   password: string = '';
   passwordStrength: string = '';
+
+  showPassword() {
+    this.show = !this.show;
+  }
 
   checkPasswordStrength() {
     if (this.password.length === 0) {

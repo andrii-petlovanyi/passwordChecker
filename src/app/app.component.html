@@ -1,14 +1,18 @@
 <main class="main">
   <section class="checker">
+    <h1 class="checker__title">Password checker</h1>
     <div class="checker__form">
-      <label class="checker__label" for="password">Password</label>
       <input
-        type="password"
         id="password"
+        placeholder="Please type password"
+        [type]="show ? 'text' : 'password'"
         [(ngModel)]="password"
         (input)="checkPasswordStrength()"
         class="checker__input"
       />
+      <mat-icon (click)="showPassword()" class="checker__password-toggle">{{
+        show ? "visibility" : "visibility_off"
+      }}</mat-icon>
     </div>
 
     <div class="checker__indicators">
@@ -30,11 +34,56 @@
       ></div>
       <div
         [ngClass]="{
-          default: !passwordStrength || passwordStrength === 'easy',
+          default:
+            !passwordStrength ||
+            passwordStrength === 'easy' ||
+            passwordStrength === 'medium',
           weak: passwordStrength === 'weak',
           strong: passwordStrength === 'strong'
         }"
       ></div>
+    </div>
+
+    <div class="checker__rules">
+      <h2 class="checker__rules-title">Validation display conditions:</h2>
+      <ul>
+        <li>
+          <p>
+            If the field is empty, <span class="count">all</span> sections are
+            <span class="gray">gray</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            If the field has less than 8 characters,
+            <span class="count">all</span> sections are
+            <span class="red">red</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            If the password is easy - the
+            <span class="count">first</span> section is
+            <span class="red">red</span> the <span class="count">rest</span> are
+            <span class="gray">gray</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            If the password is medium - the <span class="count">first</span> two
+            sections are <span class="yellow">yellow</span> the last
+            <span class="count">one</span> is
+            <span class="gray">gray</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            If the password is strong, <span class="count">all</span> sections
+            are
+            <span class="green">green</span>
+          </p>
+        </li>
+      </ul>
     </div>
   </section>
 </main>
