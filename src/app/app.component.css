@@ -1,0 +1,56 @@
+.main {
+    max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checker {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.checker__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.checker__label {
+  text-align: center;
+}
+
+.checker__input {
+  text-align: center;
+}
+
+.checker__indicators {
+  display: flex;
+
+  gap: 5px;
+  height: 8px;
+  margin-top: 4px;
+}
+
+.checker__indicators div {
+    width: 30px;
+    border-radius: 4px;
+  }
+.checker__indicators  .default {
+    background-color: grey;
+  }
+
+.checker__indicators  .weak {
+    background-color: #ff5c5c;
+  }
+
+.checker__indicators  .medium {
+    background-color: #ffd900;
+  }
+
+.checker__indicators  .strong {
+    background-color: #56e893;
+  }

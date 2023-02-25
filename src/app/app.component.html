@@ -1,0 +1,40 @@
+<main class="main">
+  <section class="checker">
+    <div class="checker__form">
+      <label class="checker__label" for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        (input)="checkPasswordStrength()"
+        class="checker__input"
+      />
+    </div>
+
+    <div class="checker__indicators">
+      <div
+        [ngClass]="{
+          default: !passwordStrength,
+          weak: passwordStrength === 'weak' || passwordStrength === 'easy',
+          medium: passwordStrength === 'medium',
+          strong: passwordStrength === 'strong'
+        }"
+      ></div>
+      <div
+        [ngClass]="{
+          default: !passwordStrength || passwordStrength === 'easy',
+          weak: passwordStrength === 'weak',
+          medium: passwordStrength === 'medium',
+          strong: passwordStrength === 'strong'
+        }"
+      ></div>
+      <div
+        [ngClass]="{
+          default: !passwordStrength || passwordStrength === 'easy',
+          weak: passwordStrength === 'weak',
+          strong: passwordStrength === 'strong'
+        }"
+      ></div>
+    </div>
+  </section>
+</main>
