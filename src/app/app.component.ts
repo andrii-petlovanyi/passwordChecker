@@ -40,7 +40,6 @@ export class AppComponent {
     } else {
       this.passwordStrength = 'weak';
     }
-    console.log(this.passwordStrength)
   }
 
 }
